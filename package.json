@@ -1,0 +1,96 @@
+{
+  "name": "fuse-box-electron-seed",
+  "productName": "fuse-box-electron-example-app",
+  "author": {
+    "name": "FuseBoxDevs",
+    "email": "fuse@example.com",
+    "url": "https://github.com/fuse-box"
+  },
+  "version": "1.0.5",
+  "description": "Electron application boilerplate based on typescript fusebox with hot reloading",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node fuse",
+    "start:electron": "electron .",
+    "start:electron:watch": "nodemon --watch 'dist/main/*.*' --exec npm run start:electron",
+    "start:prod": "cross-env NODE_ENV=production && npm run build && npm run start:electron",
+    "build": "npm run lint && cross-env NODE_ENV=production && node fuse dist",
+    "lint": "tslint --project tslint.json",
+    "prettier": "prettier --write src/**/*.ts",
+    "package": "npm run build && build -mwl",
+    "luis": "luis"
+  },
+  "build": {
+    "productName": "On File",
+    "appId": "com.onfile",
+    "files": [
+      "dist/",
+      "node_modules/",
+      "resources/",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ]
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuse-box/fuse-box-electron-seed.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/fuse-box/fuse-box-electron-seed/issues"
+  },
+  "homepage": "https://github.com/fuse-box/fuse-box-electron-seed#readme",
+  "devDependencies": {
+    "@types/electron-config": "^0.2.1",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.2",
+    "cross-env": "^5.0.5",
+    "electron": "^4.0.4",
+    "electron-builder": "^20.38.5",
+    "fuse-box": "^3.7.1",
+    "luis": "^3.2.8",
+    "nodemon": "^1.17.5",
+    "terser": "^3.16.1",
+    "typescript": "^3.3.1",
+    "uglify-js": "^3.0.27"
+  },
+  "dependencies": {
+    "aphrodite": "^2.3.1",
+    "electron-config": "^2.0.0",
+    "electron-is-dev": "^1.0.1",
+    "electron-log": "^3.0.1",
+    "electron-settings": "^3.2.0",
+    "electron-updater": "^4.0.6",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  }
+}
