@@ -1,7 +1,7 @@
 import { renderLuis } from 'luis';
 
 renderLuis({
-	loadTests: () => {
-		require('**.stories');
-	},
+  loadTests: () => {
+    require('**.story');
+  }
 });
